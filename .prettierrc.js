@@ -18,7 +18,7 @@ module.exports = {
 
   bracketSpacing: false,
   insertPragma: true,
-  requirePragma: false,
+  requirePragma: true,
   jsxBracketSameLine: true,
   proseWrap: 'never',
   semi: false,
