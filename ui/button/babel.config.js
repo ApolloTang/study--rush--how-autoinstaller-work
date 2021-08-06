@@ -1,3 +1,5 @@
+/** @format */
+
 module.exports = (api) => {
   api.cache(true)
 
@@ -6,20 +8,18 @@ module.exports = (api) => {
       [
         '@babel/preset-env',
         {
-          'debug': false,
-          'targets': '> 0.25%, not dead',
-          'useBuiltIns': 'usage',
-          'corejs': 3,
-          'modules': false
+          debug: false,
+          targets: '> 0.25%, not dead',
+          useBuiltIns: 'usage',
+          corejs: 3,
+          modules: false
         }
       ],
       '@babel/preset-react',
       '@babel/preset-typescript'
     ],
-    plugins: [
-      'babel-plugin-styled-components'
-    ]
+    plugins: ['babel-plugin-styled-components']
   }
 
   return out
-};
+}

@@ -9,7 +9,5 @@
     "declaration": true,
     "noImplicitAny": false // TODO technical debt
   },
-  "references": [
-    {"path": "../../ui/react-cat-image"},
-  ]
+  "references": [{"path": "../../ui/react-cat-image"}]
 }

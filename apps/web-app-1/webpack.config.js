@@ -1,30 +1,33 @@
-const pathResolve = require('path').resolve;
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const {getIfUtils, removeEmpty} = require('webpack-config-utils');
+/** @format */
 
+const pathResolve = require('path').resolve
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const {getIfUtils, removeEmpty} = require('webpack-config-utils')
 
 // -- Configuration Setting -- //
-const title = 'react boilerplate';
-const webpackDevServer_host = '0.0.0.0';
-const webpackDevServer_port = '9090';
-const absPathToSrc = pathResolve(__dirname, 'src');
-const absPathToDist = pathResolve(__dirname, 'build');
-const absPathToFont = pathResolve(__dirname, 'src/common/fonts');
-
+const title = 'react boilerplate'
+const webpackDevServer_host = '0.0.0.0'
+const webpackDevServer_port = '9090'
+const absPathToSrc = pathResolve(__dirname, 'src')
+const absPathToDist = pathResolve(__dirname, 'build')
+const absPathToFont = pathResolve(__dirname, 'src/common/fonts')
 
 const webpackConfig_fn = (env = {}) => {
-  const _mode = env.mode || 'production';
-  const {ifProduction} = getIfUtils(_mode);
+  const _mode = env.mode || 'production'
+  const {ifProduction} = getIfUtils(_mode)
 
-  const devServer = ifProduction( {}, {
-    devServer: {
-      host: webpackDevServer_host,
-      port: webpackDevServer_port,
-      historyApiFallback: true,
-      stats: 'minimal'
+  const devServer = ifProduction(
+    {},
+    {
+      devServer: {
+        host: webpackDevServer_host,
+        port: webpackDevServer_port,
+        historyApiFallback: true,
+        stats: 'minimal'
+      }
     }
-  });
+  )
 
   const configOut = {
     ...devServer,
@@ -32,7 +35,7 @@ const webpackConfig_fn = (env = {}) => {
     devtool: 'source-map',
     context: absPathToSrc,
     entry: {
-      main: [ './main' ]
+      main: ['./main']
     },
     output: ifProduction(
       {
@@ -45,8 +48,8 @@ const webpackConfig_fn = (env = {}) => {
       }
     ),
     resolve: {
-      modules: [ absPathToSrc, 'node_modules'],
-      extensions: ['*', '.mjs', '.js', '.ts', '.jsx', '.tsx'],
+      modules: [absPathToSrc, 'node_modules'],
+      extensions: ['*', '.mjs', '.js', '.ts', '.jsx', '.tsx']
     },
     module: {
       rules: removeEmpty([
@@ -102,13 +105,13 @@ const webpackConfig_fn = (env = {}) => {
       }),
       ifProduction(
         new MiniCssExtractPlugin({
-          filename: "[name]-[chunkhash].css",
+          filename: '[name]-[chunkhash].css'
         })
       )
     ])
-  };
+  }
 
-  return configOut;
-};
+  return configOut
+}
 
-module.exports = webpackConfig_fn;
+module.exports = webpackConfig_fn
