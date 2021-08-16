@@ -62,6 +62,16 @@
       "watchForChanges": false,
       // "disableBuildCache ": false
     },
+    {
+      "commandKind": "global",
+      "name": "prettier",
+      "summary": "Run prettier on staged changes",
+      "description": "Used by the pre-commit Git hook. This command invokes Prettier to reformat staged changes.",
+      "safeForSimultaneousRushProcesses": true,
+      "shellCommand": "pretty-quick --staged", // This will invoke common/autoinstallers/rush-prettier/node_modules/.bin/pretty-quick
+      "autoinstallerName": "rush-prettier",
+    }
+    // {
     //   /**
     //    * (Required) Determines the type of custom command.
     //    * Rush's "bulk" commands are invoked separately for each project.  Rush will look in
