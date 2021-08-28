@@ -1,3 +1,15 @@
+# Learn repo
+
+Repo for following official toturial:
+[https://rushjs.io/pages/maintainer/git_hooks/](https://rushjs.io/pages/maintainer/enabling_prettier/) 
+[https://rushjs.io/pages/maintainer/enabling_prettier/](https://rushjs.io/pages/maintainer/enabling_prettier/)
+
+learned:
+* how autointaller work.
+* how to installed githook.
+* how to get prettier to work.
+
+
 ## Quick start
 
 ```
